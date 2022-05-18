@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
-import { colors, textColor } from '../../../Theming/Theme'
+import { colors, textColor, weakColor } from '../../../Theming/Theme'
 import { Button } from '../../../Theming/UI'
 
 const CommentsWrapper = styled.div`
@@ -35,7 +35,7 @@ const DeleteButton = styled.button`
     margin-top: 7px;
     padding: 0 0 3px;
     font-size: 12px;
-    border-bottom: 2px solid ${colors.weakLight};
+    border-bottom: 2px solid ${weakColor};
     &:hover {
         border-color: ${colors.accent};
     }

@@ -20,9 +20,9 @@ const Movies = styled.span`
     font-size: 24px;
 `
 
-const Logo = () => {
+const Logo = ({ setGenre }) => {
     return (
-        <HeaderLogo>
+        <HeaderLogo onClick={() => setGenre('')}>
             <Heading>
                 <Best>Best</Best> <br />
                 <Movies>Movies</Movies>

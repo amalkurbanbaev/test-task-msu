@@ -5,7 +5,6 @@ import { Button } from '../../Theming/UI'
 import { Card, Details, Info, Title, WatchButton, Wrapper } from './style'
 
 const Items = ({ movies }) => {
-    console.log(movies)
     const data = movies.movies || []
     return (
         <Wrapper>

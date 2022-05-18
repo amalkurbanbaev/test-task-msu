@@ -11,9 +11,7 @@ import useComments from '../../hooks/data/useComments'
 
 const ContainerCustom = styled(Container)`
     background: ${bg};
-`
-const ColSidebar = styled(Col)`
-    background: ${bgSidebar};
+    min-height: 100vh;
 `
 
 const Wrapper = styled.div`
@@ -44,13 +42,12 @@ const MovieItem = ({ switchTheme, genre, setGenre }) => {
     const { movie } = useMovie(id)
     const item = movie.movie.movie || null
     const { comments, setComments } = useComments(id)
-    console.log(item)
+
     return (
         <ContainerCustom fluid>
             <Row>
-                <ColSidebar xs={2} className="vh-100 sticky-top">
-                    <Sidebar />
-                </ColSidebar>
+                <Sidebar setGenre={setGenre} />
+
                 <Col xs={10}>
                     <Col xs={12}>
                         <Wrapper>

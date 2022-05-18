@@ -13,7 +13,6 @@ const NavBox = styled.ul`
     display: flex;
     flex-direction: column;
     margin-top: 10px;
-    margin-right: -12px;
 `
 
 const NavItem = styled.li`

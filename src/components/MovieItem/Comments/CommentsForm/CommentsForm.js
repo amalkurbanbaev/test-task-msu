@@ -16,8 +16,6 @@ const CommentsForm = ({ comments, setComments, movieId }) => {
     }
     const [comment, setComment] = useState(initialValue)
 
-    console.log(comments)
-
     // достаем из localStorage комменты, и ставим их в comments
     useEffect(() => {
         if (localStorage.getItem('comments')) {
@@ -28,7 +26,7 @@ const CommentsForm = ({ comments, setComments, movieId }) => {
     const formHandler = (e) => {
         e.preventDefault()
 
-        // создаем копию коммента
+        // создаем копию comments
         const currentComments = comments
         const comId = comment.id
         const comMovieId = comment.movieId
@@ -50,7 +48,7 @@ const CommentsForm = ({ comments, setComments, movieId }) => {
         if (localStorage.getItem('comments')) {
             setComments(JSON.parse(localStorage.getItem('comments')))
         }
-
+        // очищаем поля ввода 
         setComment(initialValue)
     }
 

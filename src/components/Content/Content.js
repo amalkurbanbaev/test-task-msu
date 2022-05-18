@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 
 const Content = ({ switchTheme, movies, page, setPage, genre, setGenre }) => {
     return (
-        <Col xs={12}>
+        <Col xs={10}>
             <Wrapper>
                 <Header
                     switchTheme={switchTheme}
