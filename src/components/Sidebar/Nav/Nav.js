@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { colors, weakColor } from '../../theming/Theme'
+import { colors, weakColor } from '../../Theming/Theme'
 import iconHome from '../../../images/home.svg'
 import IconHome from './Icons/IconHome'
 
@@ -40,12 +40,12 @@ const NavSection = styled.span`
 const Nav = () => {
     return (
         <Wrapper>
-            <NavSection>Меню</NavSection>
+            <NavSection>Menu</NavSection>
             <NavBox>
                 <Link to="/">
                     <NavItem icon={iconHome}>
                         <IconHome />
-                        Главная
+                        Home
                     </NavItem>
                 </Link>
             </NavBox>

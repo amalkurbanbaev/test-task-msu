@@ -1,7 +1,5 @@
 import styled from 'styled-components'
-import { Row, Col, Spinner } from 'react-bootstrap'
-import cover from '../../../images/Cover1.png'
-import { colors, textColor, textColorReverse } from '../../theming/Theme'
+import { colors, textColor, textColorReverse } from '../../Theming/Theme'
 
 export const Wrapper = styled.div`
     padding: 30px 0;
@@ -15,9 +13,10 @@ export const Wrapper = styled.div`
 export const Card = styled.div`
     background-image: linear-gradient(to top, black 0%, transparent 100%),
         url(${(props) => props.image});
-    height: 260px;
+    min-height: 460px;
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: 50%;
     object-fit: cover;
     padding: 15px;
     border-radius: 15px;
@@ -25,6 +24,11 @@ export const Card = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    &:hover {
+        button {
+            color: ${textColor};
+        }
+    }
 `
 
 export const Title = styled.span`
@@ -53,7 +57,4 @@ export const WatchButton = styled.button`
     border-radius: 5px;
 
     font-weight: 700;
-    &:hover {
-        color: ${textColor};
-    }
 `

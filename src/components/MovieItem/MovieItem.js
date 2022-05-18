@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Col, Row, Container, Spinner } from 'react-bootstrap'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import Header from '../Content/Header'
 import Sidebar from '../Sidebar/Sidebar'
-import { bg, bgSidebar, colors, textColor } from '../theming/Theme'
+import { bg, bgSidebar, colors, textColor } from '../Theming/Theme'
 import useMovie from '../../hooks/data/useMovie'
+import Comments from './Comments/Comments'
+import useComments from '../../hooks/data/useComments'
 
 const ContainerCustom = styled(Container)`
     background: ${bg};
@@ -30,16 +32,19 @@ const Title = styled.h1`
     margin-bottom: 20px;
 `
 const Image = styled.img`
-    max-width: 640px;
+    max-width: 320px;
     margin-bottom: 20px;
 `
-const Description = styled.div``
+const Description = styled.div`
+    max-width: 50%;
+`
 
-const MovieItem = ({ switchTheme }) => {
+const MovieItem = ({ switchTheme, genre, setGenre }) => {
     const { id } = useParams()
     const { movie } = useMovie(id)
     const item = movie.movie.movie || null
-
+    const { comments, setComments } = useComments(id)
+    console.log(item)
     return (
         <ContainerCustom fluid>
             <Row>
@@ -49,16 +54,16 @@ const MovieItem = ({ switchTheme }) => {
                 <Col xs={10}>
                     <Col xs={12}>
                         <Wrapper>
-                            <Link to="/">
-                                <Header />
-                            </Link>
+                            <Header
+                                switchTheme={switchTheme}
+                                genre={genre}
+                                setGenre={setGenre}
+                            />
 
                             {item ? (
                                 <>
                                     <Title>{item.title_long}</Title>
-                                    <Image
-                                        src={item.background_image_original}
-                                    />
+                                    <Image src={item.medium_cover_image} />
                                     <Description>
                                         {item.description_full}
                                     </Description>
@@ -66,6 +71,11 @@ const MovieItem = ({ switchTheme }) => {
                             ) : (
                                 <Spinner animation="border" />
                             )}
+                            <Comments
+                                comments={comments}
+                                setComments={setComments}
+                                movieId={id}
+                            />
                         </Wrapper>
                     </Col>
                 </Col>

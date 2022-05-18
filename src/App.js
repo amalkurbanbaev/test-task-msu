@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Theme } from './components/theming/Theme'
+import { Theme } from './components/Theming/Theme'
 import useTheme from './hooks/UI/useTheme'
-import GlobalStyle from './components/theming/GlobalStyle'
+import GlobalStyle from './components/Theming/GlobalStyle'
 import useData from './hooks/data/useData'
 import usePagination from './hooks/data/usePagination'
 import HomePage from './components/HomePage'
@@ -36,7 +36,13 @@ const App = () => {
                     />
                     <Route
                         path=":id"
-                        element={<MovieItem switchTheme={switchTheme} />}
+                        element={
+                            <MovieItem
+                                switchTheme={switchTheme}
+                                setGenre={setGenre}
+                                genre={genre}
+                            />
+                        }
                     />
 
                     <Route path="*" element={<p>Theres nothing here!</p>} />

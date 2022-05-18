@@ -1,7 +1,7 @@
 import React from 'react'
 import { Pagination, Row } from 'react-bootstrap'
 import styled from 'styled-components'
-import { bg, colors, textColor } from '../theming/Theme'
+import { bg, colors, textColor } from '../Theming/Theme'
 
 const CustomPagination = styled(Pagination)`
     li a {
@@ -54,7 +54,7 @@ const PaginationComponent = ({ page, setPage, total }) => {
             </Pagination.Item>
         )
     }
-    console.log(items)
+
     return (
         <Row>
             <CustomPagination

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Col } from 'react-bootstrap'
 import Header from './Header'
 import Items from './Items/Items'
-import { textColor } from '../theming/Theme'
+import { textColor } from '../Theming/Theme'
 import PaginationComponent from './Pagination'
 
 const Wrapper = styled.div`

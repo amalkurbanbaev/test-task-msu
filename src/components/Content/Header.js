@@ -2,7 +2,7 @@ import React from 'react'
 import { Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { bg, bgHeader, colors, textColor } from '../theming/Theme'
+import { bgHeader, colors, textColor } from '../Theming/Theme'
 
 const CustomCol = styled(Col)`
     background: ${bgHeader};
@@ -10,7 +10,7 @@ const CustomCol = styled(Col)`
 
 const Menu = styled.ul`
     display: flex;
-    padding: 56px 0;
+    padding: 40px 0;
 `
 
 const MenuItem = styled.li`
@@ -47,66 +47,32 @@ const SwitchButton = styled.button`
 `
 
 const Header = ({ switchTheme, genre, setGenre }) => {
+    const menus = [
+        { id: 1, genre: '', text: 'All' },
+        { id: 2, genre: 'Action', text: 'Action' },
+        { id: 3, genre: 'Comedy', text: 'Comedy' },
+        { id: 4, genre: 'Drama', text: 'Drama' },
+        { id: 5, genre: 'Fantasy', text: 'Fantasy' },
+        { id: 6, genre: 'History', text: 'History' },
+    ]
+
     return (
         <CustomCol className="d-flex align-items-center justify-content-between sticky-top w-100">
             <Menu>
-                <Link to="/">
-                    <MenuItem
-                        genre={genre}
-                        genreItem=""
-                        onClick={() => setGenre('')}
-                    >
-                        All
-                    </MenuItem>
-                </Link>
-                <Link to="/">
-                    <MenuItem
-                        genre={genre}
-                        genreItem="Action"
-                        onClick={() => setGenre('Action')}
-                    >
-                        Actions
-                    </MenuItem>
-                </Link>
-                <Link to="/">
-                    <MenuItem
-                        genre={genre}
-                        genreItem="Comedy"
-                        onClick={() => setGenre('Comedy')}
-                    >
-                        Comedy
-                    </MenuItem>
-                </Link>
-                <Link to="/">
-                    <MenuItem
-                        genre={genre}
-                        genreItem="Drama"
-                        onClick={() => setGenre('Drama')}
-                    >
-                        Drama
-                    </MenuItem>
-                </Link>
-                <Link to="/">
-                    <MenuItem
-                        genre={genre}
-                        genreItem="Fantasy"
-                        onClick={() => setGenre('Fantasy')}
-                    >
-                        Fantasy
-                    </MenuItem>
-                </Link>
-                <Link to="/">
-                    <MenuItem
-                        genre={genre}
-                        genreItem="History"
-                        onClick={() => setGenre('History')}
-                    >
-                        History
-                    </MenuItem>
-                </Link>
+                {menus.map((m) => (
+                    <Link to="/" key={m.id}>
+                        <MenuItem
+                            genre={genre}
+                            genreItem={m.genre}
+                            onClick={() => setGenre(m.genre)}
+                        >
+                            {m.text}
+                        </MenuItem>
+                    </Link>
+                ))}
             </Menu>
             <SwitchButton onClick={() => switchTheme()}>
-                Сменить тему
+                Switch theme
             </SwitchButton>
         </CustomCol>
     )

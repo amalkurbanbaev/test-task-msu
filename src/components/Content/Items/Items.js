@@ -1,6 +1,7 @@
 import React from 'react'
 import { Spinner } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { Button } from '../../Theming/UI'
 import { Card, Details, Info, Title, WatchButton, Wrapper } from './style'
 
 const Items = ({ movies }) => {
@@ -11,14 +12,14 @@ const Items = ({ movies }) => {
             {data.length !== 0 ? (
                 data.map((item) => (
                     <Link to={`/${item.id}`} key={item.id}>
-                        <Card md={3} image={item.background_image_original}>
+                        <Card md={3} image={item.large_cover_image}>
                             <Title>{item.title}</Title>
                             <Info>
                                 <Details>
                                     {item.year} <br />{' '}
                                     {item.genres ? item.genres[0] : 'Other'}
                                 </Details>
-                                <WatchButton>Смотреть</WatchButton>
+                                <Button float="right" text="Watch" />
                             </Info>
                         </Card>
                     </Link>

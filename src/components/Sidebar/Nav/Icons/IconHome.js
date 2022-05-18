@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { textColor } from '../../../theming/Theme'
+import { textColor } from '../../../Theming/Theme'
 
 const SvgCustom = styled.svg`
     fill: none;

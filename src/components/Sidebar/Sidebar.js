@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Logo from './Logo/Logo'
 import Nav from './Nav/Nav'
-import { bg, textColor } from '../theming/Theme'
+import { bg, textColor } from '../Theming/Theme'
 
 const Wrapper = styled.div`
     color: ${textColor};

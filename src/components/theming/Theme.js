@@ -5,7 +5,7 @@ import theme from 'styled-theming'
 // небольшая дизайн система
 export const colors = {
     white: '#F9F9F9',
-    lightBg: 'rgba(145, 145, 145, 0.12)',
+    lightBg: '#ededed',
     black: '#16181E',
     dark: '#21242D',
     accent: '#00B9AE',
@@ -24,7 +24,7 @@ export const bgSidebar = theme('mode', {
 })
 
 export const bgHeader = theme('mode', {
-    light: colors.weakDark,
+    light: colors.lightBg,
     dark: colors.black,
 })
 

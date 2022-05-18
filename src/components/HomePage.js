@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import styled from 'styled-components'
 import Sidebar from './Sidebar/Sidebar'
 import Content from './Content/Content'
-import { bg, bgSidebar } from './theming/Theme'
+import { bg, bgSidebar } from './Theming/Theme'
 
 const ContainerCustom = styled(Container)`
     background: ${bg};
