@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import { colors } from './Theme'
 
 const GlobalStyle = createGlobalStyle`
 	html, body, div, span, applet, object, iframe,
@@ -18,7 +19,8 @@ const GlobalStyle = createGlobalStyle`
 		padding: 0;
 		border: 0;
 		font-size: 100%;
-		font-family: 'Roboto', sans-serif;
+		font-family: 'Lato', sans-serif;
+	
 		vertical-align: baseline;
 	}
 	article, aside, details, figcaption, figure, 
@@ -46,6 +48,13 @@ const GlobalStyle = createGlobalStyle`
 	table {
 		border-collapse: collapse;
 		border-spacing: 0;
+	}
+	a {
+		text-decoration: none;
+		color: inherit;
+		&:hover {
+			color: ${colors.accent}
+		}
 	}
 `
 

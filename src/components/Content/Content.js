@@ -3,12 +3,12 @@ import styled from 'styled-components'
 import { Col } from 'react-bootstrap'
 import Header from './Header'
 import Items from './Items/Items'
-import { bg, textColor } from '../theming/Theme'
+import { textColor } from '../theming/Theme'
+import PaginationComponent from './Pagination'
 
 const Wrapper = styled.div`
-    background: ${bg};
     color: ${textColor};
-    padding: 56px 60px;
+    padding: 0 60px 50px;
 
     display: flex;
     flex-direction: column;
@@ -16,12 +16,21 @@ const Wrapper = styled.div`
     transition: all 200ms;
 `
 
-const Content = ({ switchTheme }) => {
+const Content = ({ switchTheme, movies, page, setPage, genre, setGenre }) => {
     return (
         <Col xs={12}>
             <Wrapper>
-                <Header switchTheme={switchTheme} />
-                <Items xs={9} />
+                <Header
+                    switchTheme={switchTheme}
+                    genre={genre}
+                    setGenre={setGenre}
+                />
+                <Items movies={movies} />
+                <PaginationComponent
+                    page={page}
+                    setPage={setPage}
+                    total={movies.movie_count}
+                />
             </Wrapper>
         </Col>
     )
