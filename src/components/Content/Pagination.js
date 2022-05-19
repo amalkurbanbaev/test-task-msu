@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import { bg, colors, textColor } from '../Theming/Theme'
 
 const CustomPagination = styled(Pagination)`
+    margin-top: 20px;
+    flex-wrap: wrap;
     li a {
         background: ${bg} !important;
         color: ${textColor} !important;
@@ -55,8 +57,10 @@ const PaginationComponent = ({ page, setPage, total }) => {
         )
     }
 
+    console.log(window.screen.width)
+
     return (
-        <Col className="d-none">
+        <Col className="">
             <CustomPagination
                 className="justify-content-center w-100"
                 size="lg"
@@ -74,7 +78,9 @@ const PaginationComponent = ({ page, setPage, total }) => {
                     </>
                 )}
 
-                {items.slice(page - leftRadius, page + rightRadius)}
+                {window.screen.width > 992
+                    ? items.slice(page - leftRadius, page + rightRadius)
+                    : items.slice(page - 1, page + 1)}
 
                 {lastPage - page > 5 && (
                     <>
