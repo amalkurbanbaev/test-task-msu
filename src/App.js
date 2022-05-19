@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import { Theme } from './components/Theming/Theme'
 import useTheme from './hooks/UI/useTheme'
 import GlobalStyle from './components/Theming/GlobalStyle'
@@ -19,7 +19,7 @@ const App = () => {
         <Theme isLight={isLight}>
             <GlobalStyle />
 
-            <BrowserRouter>
+            <HashRouter>
                 <Routes>
                     <Route
                         path="/"
@@ -47,7 +47,7 @@ const App = () => {
 
                     <Route path="*" element={<p>Theres nothing here!</p>} />
                 </Routes>
-            </BrowserRouter>
+            </HashRouter>
         </Theme>
     )
 }
