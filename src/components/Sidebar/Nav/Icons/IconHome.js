@@ -5,13 +5,16 @@ import { textColor } from '../../../Theming/Theme'
 const SvgCustom = styled.svg`
     fill: none;
     stroke: ${textColor};
-    margin-right: 15px;
+    margin-right: ${(props) => props.mr || '15px'};
     position: relative;
     top: -3px;
+    padding-bottom: ${(props) => props.pb};
 `
-const IconHome = () => {
+const IconHome = ({ mr, pb }) => {
     return (
         <SvgCustom
+            mr={mr}
+            pb={pb}
             width="22"
             height="22"
             viewBox="0 0 22 22"

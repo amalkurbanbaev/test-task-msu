@@ -1,9 +1,11 @@
 import styled from 'styled-components'
+import { down } from 'styled-breakpoints'
 import { colors, textColor } from '../../../Theming/Theme'
 
 export const FormArea = styled.form`
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
 
     input,
@@ -22,7 +24,11 @@ export const FormArea = styled.form`
     }
 `
 
-export const LabelInput = styled.label``
+export const LabelInput = styled.label`
+    ${down('lg')} {
+        margin-bottom: 10px;
+    }
+`
 
 export const NameInput = styled.input`
     color: ${textColor};

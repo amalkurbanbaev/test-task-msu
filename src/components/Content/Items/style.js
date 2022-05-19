@@ -2,8 +2,6 @@ import styled from 'styled-components'
 import { colors, textColor, textColorReverse } from '../../Theming/Theme'
 
 export const Wrapper = styled.div`
-    padding: 30px 0;
-
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     grid-gap: 20px;

@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
 		line-height: 1;
 		transition: all 200ms
 	}
-	ol, ul {
+	ol, ul, li {
 		list-style: none !important;
 	}
 	blockquote, q {

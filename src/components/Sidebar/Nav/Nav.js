@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { colors, weakColor } from '../../Theming/Theme'
-import iconHome from '../../../images/home.svg'
+
 import IconHome from './Icons/IconHome'
 
 const Wrapper = styled.div`
@@ -42,7 +42,7 @@ const Nav = () => {
             <NavSection>Menu</NavSection>
             <NavBox>
                 <Link to="/">
-                    <NavItem icon={iconHome}>
+                    <NavItem>
                         <IconHome />
                         Home
                     </NavItem>

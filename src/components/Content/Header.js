@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useContext, useRef } from 'react'
 import { Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { MenuContext } from '../../hooks/UI/navState'
+import Logo from '../Sidebar/Logo/Logo'
 import { bgHeader, colors, textColor } from '../Theming/Theme'
+import HamburgerButton from './SideMenu/HamburgerButton'
+import SideMenu from './SideMenu/SideMenu'
+import useOnClickOutside from '../../hooks/UI/onClickOutside'
 
 const CustomCol = styled(Col)`
     background: ${bgHeader};
@@ -46,7 +51,19 @@ const SwitchButton = styled.button`
     }
 `
 
+const MobileWrapper = styled.div``
+
 const Header = ({ switchTheme, genre, setGenre }) => {
+    const node = useRef()
+    const buttRef = useRef(null)
+    const { isMenuOpen, toggleMenu, toggleMenuMode } = useContext(MenuContext)
+    useOnClickOutside(node, () => {
+        // Only if menu is open
+        if (isMenuOpen) {
+            toggleMenuMode()
+        }
+    })
+
     const menus = [
         { id: 1, genre: '', text: 'All' },
         { id: 2, genre: 'Action', text: 'Action' },
@@ -55,26 +72,46 @@ const Header = ({ switchTheme, genre, setGenre }) => {
         { id: 5, genre: 'Fantasy', text: 'Fantasy' },
         { id: 6, genre: 'History', text: 'History' },
     ]
-
     return (
-        <CustomCol className="d-flex align-items-center justify-content-between sticky-top w-100">
-            <Menu>
-                {menus.map((m) => (
-                    <Link to="/" key={m.id}>
-                        <MenuItem
-                            genre={genre}
-                            genreItem={m.genre}
-                            onClick={() => setGenre(m.genre)}
-                        >
-                            {m.text}
-                        </MenuItem>
-                    </Link>
-                ))}
-            </Menu>
-            <SwitchButton onClick={() => switchTheme()}>
-                Switch theme
-            </SwitchButton>
-        </CustomCol>
+        <>
+            <MobileWrapper className="d-flex justify-content-between d-lg-none p-3">
+                <Link to="/">
+                    <Logo setGenre={setGenre} />
+                </Link>
+                <HamburgerButton
+                    ref={buttRef}
+                    isMenuOpen={isMenuOpen}
+                    toggleMenuMode={toggleMenuMode}
+                />
+            </MobileWrapper>
+
+            <SideMenu
+                ref={node}
+                menus={menus}
+                switchTheme={switchTheme}
+                genre={genre}
+                setGenre={setGenre}
+            />
+
+            <CustomCol className="d-flex align-items-center justify-content-between sticky-top w-100 d-none d-lg-flex">
+                <Menu>
+                    {menus.map((m) => (
+                        <Link to="/" key={m.id}>
+                            <MenuItem
+                                genre={genre}
+                                genreItem={m.genre}
+                                onClick={() => setGenre(m.genre)}
+                            >
+                                {m.text}
+                            </MenuItem>
+                        </Link>
+                    ))}
+                </Menu>
+                <SwitchButton onClick={() => switchTheme()}>
+                    Switch theme
+                </SwitchButton>
+            </CustomCol>
+        </>
     )
 }
 

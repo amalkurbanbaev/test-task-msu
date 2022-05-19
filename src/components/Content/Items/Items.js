@@ -2,7 +2,7 @@ import React from 'react'
 import { Spinner } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { Button } from '../../Theming/UI'
-import { Card, Details, Info, Title, WatchButton, Wrapper } from './style'
+import { Card, Details, Info, Title, Wrapper } from './style'
 
 const Items = ({ movies }) => {
     const data = movies.movies || []

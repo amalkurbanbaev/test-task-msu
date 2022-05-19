@@ -1,5 +1,5 @@
 import React from 'react'
-import { Pagination, Row } from 'react-bootstrap'
+import { Pagination, Col } from 'react-bootstrap'
 import styled from 'styled-components'
 import { bg, colors, textColor } from '../Theming/Theme'
 
@@ -56,7 +56,7 @@ const PaginationComponent = ({ page, setPage, total }) => {
     }
 
     return (
-        <Row>
+        <Col className="d-none">
             <CustomPagination
                 className="justify-content-center w-100"
                 size="lg"
@@ -89,7 +89,7 @@ const PaginationComponent = ({ page, setPage, total }) => {
                     <Pagination.Next onClick={() => setPage(page + 1)} />
                 )}
             </CustomPagination>
-        </Row>
+        </Col>
     )
 }
 

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import Logo from './Logo/Logo'
 import Nav from './Nav/Nav'
 import { bgSidebar, textColor } from '../Theming/Theme'
+import MobileBar from './Mobile/MobileBar'
 
 const ColCustom = styled(Col)`
     padding-left: 0;
@@ -30,15 +31,18 @@ const Copy = styled.div`
 
 const Sidebar = ({ setGenre }) => {
     return (
-        <ColCustom xs={2} className="vh-100 sticky-top">
-            <Wrapper className="vh-100 sticky-top">
-                <Link to="/">
-                    <Logo setGenre={setGenre} />
-                </Link>
-                <Nav />
-                <Copy>Built With ❤ by {`Amal'`} Kurbanbaev</Copy>
-            </Wrapper>
-        </ColCustom>
+        <>
+            <MobileBar />
+            <ColCustom lg={2} className="vh-100 sticky-top d-none d-lg-block">
+                <Wrapper className="vh-100 sticky-top">
+                    <Link to="/">
+                        <Logo setGenre={setGenre} />
+                    </Link>
+                    <Nav />
+                    <Copy>Built With ❤. By {`Amal'`} Kurbanbaev</Copy>
+                </Wrapper>
+            </ColCustom>
+        </>
     )
 }
 
